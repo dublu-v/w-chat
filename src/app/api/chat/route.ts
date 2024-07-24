@@ -3,9 +3,11 @@ import { OpenAI } from "openai";
 
 export async function POST(req: Request) {
     const { messages } = await req.json();
-    console.log(messages);
+    console.log('messsages ', messages)
 
     const openai = new OpenAI({ baseURL: 'https://api.openai.com/v1/', apiKey: process.env.OPENAI_API_KEY });
+
+    console.log('key :', openai.apiKey)
     const result = await openai.chat.completions.create(
         {
             model: "gpt-4o-mini",
