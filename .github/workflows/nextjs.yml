@@ -48,6 +48,8 @@ jobs:
             echo "Unable to determine package manager"
             exit 1
           fi
+        env:
+          OPEN_API_KEY: ${{ secrets.OPEN_API_KEY }}
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
