@@ -4,7 +4,7 @@ import { useChat } from "ai/react";
 
 
 export default function Robot() {
-  const { messages, input, handleInputChange, handleSubmit } = useChat({ api: '/api/chat' });
+  const { messages, input, handleInputChange, handleSubmit } = useChat({ api: '/w-chat/api/chat' });
   console.log(process.env.NEXT_PUBLIC_API_URL);
   return (
     <div className="flex flex-col w-full mx-2 stretch">
