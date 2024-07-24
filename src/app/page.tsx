@@ -5,7 +5,7 @@ import { useChat } from "ai/react";
 
 export default function Robot() {
   const { messages, input, handleInputChange, handleSubmit } = useChat({ api: "api/chat" });
-
+  console.log(process.env.OPENAI_API_KEY);
   return (
     <div className="flex flex-col w-full mx-2 stretch">
       {messages.map((message) => (
@@ -17,6 +17,7 @@ export default function Robot() {
       }
       <form onSubmit={handleSubmit}>
         <input
+          autoFocus
           className="fixed bottom-0 w-full max-w-md p-2 mb-8 border border-gray-300 rounded text-blue-950"
           type="text"
           value={input}
