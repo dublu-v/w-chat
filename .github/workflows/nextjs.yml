@@ -92,4 +92,4 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
         with:  
-          OPEN_API_KEY: ${{ secrets.OPEN_API_KEY }}
+          'OPEN_API_KEY': ${{ secrets.OPEN_API_KEY }}
