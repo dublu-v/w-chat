@@ -5,7 +5,6 @@ import { useChat } from "ai/react";
 
 export default function Robot() {
   const { messages, input, handleInputChange, handleSubmit } = useChat({ api: "api/chat" });
-  console.log(process.env.OPENAI_API_KEY);
   return (
     <div className="flex flex-col w-full mx-2 stretch">
       {messages.map((message) => (
