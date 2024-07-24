@@ -48,8 +48,6 @@ jobs:
             echo "Unable to determine package manager"
             exit 1
           fi
-        env:
-          OPEN_API_KEY: ${{ secrets.OPEN_API_KEY }}
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -77,6 +75,8 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
+        env:
+          OPEN_API_KEY: ${{ secrets.OPEN_API_KEY }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
