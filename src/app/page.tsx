@@ -1,19 +1,17 @@
-'use client'
-import { useCompletion } from 'ai/react';
-import { readStreamableValue } from 'ai/rsc';
+'use client';
+
 import { useState } from 'react';
-import { generate } from '@/app/actions';
+import { generate } from './actions';
+import { readStreamableValue } from 'ai/rsc';
 
+// Allow streaming responses up to 30 seconds
+export const maxDuration = 30;
 
-export default function Robot() {
-  const { completion, complete } = useCompletion({ api: '/api/chat' });
-
-  const [input, setInput] = useState('');
-
+export default function Home() {
   const [generation, setGeneration] = useState<string>('');
 
   return (
-    <><div>
+    <div>
       <button
         onClick={async () => {
           const { output } = await generate('Why is the sky blue?');
@@ -28,16 +26,5 @@ export default function Robot() {
 
       <div>{generation}</div>
     </div>
-      <br />
-
-
-      <input className="text-blue-950" value={input} onChange={(e) => setInput(e.target.value)} />
-      <div
-        onClick={async () => {
-          await complete(input);
-        }}
-      >Click to ask
-      </div><div>{completion}</div>
-    </>
   );
 }
