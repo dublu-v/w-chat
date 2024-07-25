@@ -2,7 +2,7 @@
 import { useCompletion } from 'ai/react';
 import { readStreamableValue } from 'ai/rsc';
 import { useState } from 'react';
-import { generate } from './actions';
+import { generate } from '@/app/actions';
 
 
 export default function Robot() {
